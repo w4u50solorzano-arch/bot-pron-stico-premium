@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Ojo de Horus</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #0f172a;
+        color: #e2e8f0;
+      }
+      a {
+        color: #38bdf8;
+        text-decoration: none;
+      }
+      .page {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 0 20px 40px;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.25);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(16px);
+      }
+      .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 72px;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .tag {
+        background: #0f172a;
+        border: 1px solid rgba(255,255,255,.08);
+        padding: 8px 14px;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+      }
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .brand-dot {
+        width: 34px;
+        height: 34px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #06b6d4, #6366f1);
+        display: grid;
+        place-items: center;
+      }
+      .brand-dot span {
+        font-size: 1rem;
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3rem);
+        letter-spacing: -0.04em;
+      }
+      p {
+        margin: 0;
+        line-height: 1.75;
+        color: #94a3b8;
+      }
+      .card {
+        background: rgba(15, 23, 42, 0.9);
+        border: 1px solid rgba(255,255,255,.08);
+        border-radius: 28px;
+        padding: 28px;
+        margin-top: 28px;
+        position: relative;
+        overflow: hidden;
+      }
+      .card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(6,182,212,0.12), transparent 42%, rgba(99,102,241,0.12));
+        pointer-events: none;
+      }
+      .card > * {
+        position: relative;
+      }
+      .line {
+        height: 4px;
+        width: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #06b6d4, #0ea5e9, #6366f1);
+        margin-bottom: 24px;
+      }
+      .status-row {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 22px;
+      }
+      .status-item {
+        min-height: 68px;
+        display: grid;
+        place-items: center;
+        border-radius: 20px;
+        border: 1px solid rgba(255,255,255,.08);
+        background: rgba(255,255,255,.04);
+        font-weight: 700;
+      }
+      .status-item.active {
+        background: rgba(56, 189, 248, 0.12);
+        color: #38bdf8;
+        border-color: rgba(56, 189, 248, 0.3);
+      }
+      .btn {
+        width: 100%;
+        border: none;
+        border-radius: 18px;
+        font-size: 1rem;
+        font-weight: 800;
+        padding: 16px 18px;
+        cursor: pointer;
+        transition: transform .2s ease, filter .2s ease;
+      }
+      .btn:disabled {
+        opacity: .55;
+        cursor: not-allowed;
+      }
+      .btn-primary {
+        background: #38bdf8;
+        color: #0f172a;
+      }
+      .btn-secondary {
+        background: #111827;
+        color: #f8fafc;
+        border: 1px solid rgba(255,255,255,.08);
+      }
+      .btn:hover:not(:disabled) {
+        transform: translateY(-1px);
+      }
+      .prediction {
+        margin-top: 24px;
+        background: rgba(15, 23, 42, 0.75);
+        border: 1px solid rgba(56, 189, 248, 0.18);
+        border-radius: 22px;
+        padding: 22px;
+        white-space: pre-wrap;
+        line-height: 1.6;
+        color: #e2e8f0;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 0.92rem;
+        color: #94a3b8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div class="header-inner">
+          <div class="brand">
+            <div class="brand-dot"><span>📈</span></div>
+            <div>
+              <div class="tag">EL OJO DE HORUS</div>
+            </div>
+          </div>
+          <a class="tag" href="https://wa.me/584220250437?text=quiero%20ser%20VIP" target="_blank" rel="noreferrer">Premium</a>
+        </div>
+      </header>
+
+      <main>
+        <section style="text-align:center; margin-top:32px;">
+          <h1>Desbloquea tu Pronóstico</h1>
+          <p>Mira 5 anuncios cortos para acceder a la predicción exclusiva del día.</p>
+        </section>
+
+        <section class="card">
+          <div class="line"></div>
+          <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:16px; flex-wrap:wrap;">
+            <div>
+              <p style="font-size:.75rem; text-transform:uppercase; letter-spacing:.18em; color:#38bdf8; font-weight:700; margin-bottom:6px;">Misión</p>
+              <h2 style="margin:0; font-size:1.75rem;">Ver Anuncios</h2>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:2.4rem; font-weight:800;"><span id="ads-count">0</span></div>
+              <div style="color:#94a3b8; font-size:0.95rem;">/5 anuncios</div>
+            </div>
+          </div>
+
+          <div style="margin-top:28px; border-radius:999px; background:rgba(255,255,255,.08); overflow:hidden; height:16px;">
+            <div id="progress-bar" style="width:0%; height:100%; background:linear-gradient(90deg,#06b6d4,#0ea5e9,#6366f1);"></div>
+          </div>
+
+          <button id="action-btn" class="btn btn-secondary" style="margin-top:24px;" type="button">
+            MIRAR ANUNCIO GRATIS
+          </button>
+
+          <div class="status-row">
+            <div class="status-item" id="status-1">1</div>
+            <div class="status-item" id="status-2">2</div>
+            <div class="status-item" id="status-3">3</div>
+            <div class="status-item" id="status-4">4</div>
+            <div class="status-item" id="status-5">5</div>
+          </div>
+
+          <div id="prediction-card" class="prediction" style="display:none;"></div>
+          <button id="reset-btn" class="btn btn-secondary" type="button" style="display:none; margin-top:18px;">REINICIAR</button>
+        </section>
+      </main>
+
+      <div class="footer">Actualizado: 15/05/2026 · Primera predicción premium</div>
+    </div>
+
+    <script>
+      const adsCount = document.getElementById('ads-count');
+      const progressBar = document.getElementById('progress-bar');
+      const actionBtn = document.getElementById('action-btn');
+      const predictionCard = document.getElementById('prediction-card');
+      const resetBtn = document.getElementById('reset-btn');
+      const statusItems = [
+        document.getElementById('status-1'),
+        document.getElementById('status-2'),
+        document.getElementById('status-3'),
+        document.getElementById('status-4'),
+        document.getElementById('status-5'),
+      ];
+
+      let adsWatched = 0;
+      let isWatching = false;
+      let adTimer = 0;
+      let intervalId = null;
+
+      function updateUI() {
+        adsCount.textContent = adsWatched;
+        progressBar.style.width = `${(adsWatched / 5) * 100}%`;
+
+        statusItems.forEach((item, index) => {
+          item.classList.toggle('active', adsWatched > index);
+        });
+
+        if (adsWatched >= 5) {
+          actionBtn.textContent = isWatching ? `VIENDO ANUNCIO... (${adTimer}s)` : 'REVELAR PRONÓSTICO';
+          actionBtn.className = 'btn btn-primary';
+          actionBtn.disabled = isWatching;
+        } else {
+          actionBtn.textContent = isWatching ? `VIENDO ANUNCIO... (${adTimer}s)` : 'MIRAR ANUNCIO GRATIS';
+          actionBtn.className = 'btn btn-secondary';
+          actionBtn.disabled = isWatching;
+        }
+      }
+
+      function startAd() {
+        if (adsWatched >= 5 || isWatching) return;
+        window.open('https://omg10.com/4/10431827', '_blank');
+        isWatching = true;
+        adTimer = 10;
+        updateUI();
+
+        intervalId = setInterval(() => {
+          adTimer -= 1;
+          if (adTimer <= 0) {
+            clearInterval(intervalId);
+            intervalId = null;
+            isWatching = false;
+            adsWatched += 1;
+            updateUI();
+          } else {
+            updateUI();
+          }
+        }, 1000);
+      }
+
+      function showPrediction() {
+        predictionCard.style.display = 'block';
+        predictionCard.textContent = `🚨 Pronóstico del día 15/05/2026 🚨\n-----------🔥-----------\nlotto activo\n-----------☘️-----------\nlotto rey\n-----------☘️-----------\nla granjita\n-----------☘️-----------\nSelvaplus\n/-----------⭐️-----------/\n9:00 AM / 2:00 PM\n-----------🔥-----------\n✅ 02 🐂 - TORO\n✅ 22 🐫 - CAMELLO\n✅ 08 🐭 - RATÓN\n-----------🔥-----------\n3:00 PM / 7:00 PM\n---------------\n✅ 28 ⬛ - ZAMURO\n✅ 09 🦅 - ÁGUILA\n/-----------⭐️-----------/`;
+        resetBtn.style.display = 'block';
+      }
+
+      function reset() {
+        adsWatched = 0;
+        isWatching = false;
+        adTimer = 0;
+        predictionCard.style.display = 'none';
+        resetBtn.style.display = 'none';
+        predictionCard.textContent = '';
+        if (intervalId) {
+          clearInterval(intervalId);
+          intervalId = null;
+        }
+        updateUI();
+      }
+
+      actionBtn.addEventListener('click', () => {
+        if (adsWatched < 5) {
+          startAd();
+        } else {
+          showPrediction();
+        }
+      });
+
+      resetBtn.addEventListener('click', reset);
+      updateUI();
+    </script>
+  </body>
+</html>
+
