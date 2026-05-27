@@ -1,0 +1,8 @@
+{
+  "name": "El ojo de Horus",
+  "description": "Una aplicación para obtener pronósticos exclusivos después de completar breves tareas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
