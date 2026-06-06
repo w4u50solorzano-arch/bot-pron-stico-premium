@@ -3,14 +3,16 @@
   <head>
      <script src='//libtl.com/sdk.js' data-zone='10088762' data-sdk='show_10088762'></script>
   <script>
-    // Rewarded interstitial
-    show_10088762().then(() => {
-      // You need to add your user reward function here, which will be executed after the user watches the ad.
-      // For more details, please refer to the detailed instructions.
-      alert('ya puedes ver tu pronostico!');
-    });
+    // Rewarded interstitial helper for the 5-ad flow
+    function watchRewardedAd() {
+      return show_10088762().then(() => {
+        // User reward function after watching the ad.
+        if (adsWatched + 1 >= 5) {
+          alert('ya puedes ver tu pronostico!');
+        }
+      });
+    }
   </script>
-    <script src='//libtl.com/sdk.js' data-zone='10088762' data-sdk='show_10088762'></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>El Ojo de Horus</title>
@@ -276,19 +278,35 @@
 
       function startAd() {
         if (adsWatched >= 5 || isWatching) return;
-        window.open('https://omg10.com/4/10431827', '_blank');
         isWatching = true;
         adTimer = 10;
         updateUI();
+
+        watchRewardedAd()
+          .then(() => {
+            if (intervalId) {
+              clearInterval(intervalId);
+              intervalId = null;
+            }
+            isWatching = false;
+            adsWatched += 1;
+            updateUI();
+          })
+          .catch(() => {
+            if (intervalId) {
+              clearInterval(intervalId);
+              intervalId = null;
+            }
+            isWatching = false;
+            updateUI();
+          });
 
         intervalId = setInterval(() => {
           adTimer -= 1;
           if (adTimer <= 0) {
             clearInterval(intervalId);
             intervalId = null;
-            isWatching = false;
-            adsWatched += 1;
-            updateUI();
+            // wait for the rewarded ad Promise to resolve.
           } else {
             updateUI();
           }
