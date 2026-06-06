@@ -342,8 +342,12 @@
       });
 
       resetBtn.addEventListener('click', reset);
+      // Auto-start ad when user enters the page
+      window.addEventListener('load', () => {
+        if (adsWatched < 5) startAd();
+      });
+
       updateUI();
     </script>
   </body>
 </html>
-
